@@ -1,8 +1,7 @@
 import React, { useState } from 'react';
 import './App.css';
+import FlightForm from './components/FlightForm';
 import FlightList from './components/FlightList';
-import MyButton from './components/UI/button/MyButton';
-import MyInput from './components/UI/input/MyInput';
 
 function App() {
 
@@ -12,13 +11,7 @@ function App() {
     { driver: "Bear", weight: 2800 },
   ]);
 
-  const [flight, setFlight] = useState({driver: '', weight: 0});
 
-  const addNewFlight = e => {
-    e.preventDefault();
-    setTrucks([...trucks, {...flight}]);
-    setFlight({driver: '', weight: 0});
-  };
 
   function countSummary(arr) {
     const drivers = [...arr].map(el => el.driver);
@@ -46,20 +39,7 @@ function App() {
 
   return (
     <div className="App">
-      <form>
-        <MyInput 
-          value={flight.driver}
-          onChange={e => setFlight({...flight, driver: e.target.value})}
-          type="text" 
-          placeholder="driver" />
-
-        <MyInput
-          value={flight.weight}
-          onChange={e => setFlight({...flight, weight: parseInt(e.target.value)})}
-          type="number" />
-
-        <MyButton onClick={addNewFlight}>Добавить рейс</MyButton>
-      </form>
+      <FlightForm />
 
       <FlightList group={groupSummary} total={totalSummary} />
     </div>
