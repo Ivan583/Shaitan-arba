@@ -1,3 +1,6 @@
 .App {
+  width: 600px; 
+  margin: 30px auto;
+  border: 5px double teal;
   text-align: center;
 }
