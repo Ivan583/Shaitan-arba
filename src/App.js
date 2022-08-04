@@ -12,19 +12,13 @@ function App() {
     { driver: "Bear", weight: 2800 },
   ]);
 
-  const [driver, setDriver] = useState('');
-  const [weight, setWeight] = useState(0);
+  const [flight, setFlight] = useState({driver: '', weight: 0});
 
   const addNewFlight = e => {
     e.preventDefault();
-    const newFlight = {
-      driver,
-      weight: parseInt(weight)
-    }
-    setTrucks([...trucks, newFlight]);
-    setDriver('');
-    setWeight(0);
-  }
+    setTrucks([...trucks, {...flight}]);
+    setFlight({driver: '', weight: 0});
+  };
 
   function countSummary(arr) {
     const drivers = [...arr].map(el => el.driver);
@@ -40,9 +34,9 @@ function App() {
       .map(truck => truck.weight)
       .reduce((acc, curr) => acc + curr);
       return { driver: elem, weight: summ};
-    })
+    });
       return summary;
-  }
+  };
 
   let groupSummary = countSummary(trucks);
 
@@ -54,14 +48,14 @@ function App() {
     <div className="App">
       <form>
         <MyInput 
-          value={driver}
-          onChange={e => setDriver(e.target.value)}
+          value={flight.driver}
+          onChange={e => setFlight({...flight, driver: e.target.value})}
           type="text" 
           placeholder="driver" />
 
         <MyInput
-          value={weight}
-          onChange={e => setWeight(e.target.value)}
+          value={flight.weight}
+          onChange={e => setFlight({...flight, weight: parseInt(e.target.value)})}
           type="number" />
 
         <MyButton onClick={addNewFlight}>Добавить рейс</MyButton>
