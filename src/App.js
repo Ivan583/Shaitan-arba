@@ -6,9 +6,9 @@ import FlightList from './components/FlightList';
 function App() {
 
   const [trucks, setTrucks] = useState([
-    // { driver: "Bear", weight: 2900 },
-    // { driver: "Wolf", weight: 2700 },
-    // { driver: "Bear", weight: 2800 },
+    { driver: "Bear", weight: 2900 },
+    { driver: "Wolf", weight: 2700 },
+    { driver: "Bear", weight: 2800 },
   ]);
 
   const createFlight = newFlight => 
@@ -44,6 +44,13 @@ function App() {
   return (
     <div className="App">
       <FlightForm create={createFlight} />
+
+      <div>
+        <select>
+          <option value="value">По имени</option>
+          <option value="value">По весу</option>
+        </select>
+      </div>
 
       <FlightList group={groupSummary} total={totalSummary} />
     </div>
