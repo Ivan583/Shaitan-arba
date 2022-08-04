@@ -22,6 +22,8 @@ function App() {
       weight: parseInt(weight)
     }
     setTrucks([...trucks, newFlight]);
+    setDriver('');
+    setWeight(0);
   }
 
   function countSummary(arr) {
