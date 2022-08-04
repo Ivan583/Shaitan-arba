@@ -37,6 +37,12 @@ function App() {
 
   return (
     <div className="App">
+      <form>
+        <input type="text" placeholder="driver" />
+        <input type="number" />
+        <button>Добавить рейс</button>
+      </form>
+
       <FlightList group={groupSummary} total={totalSummary} />
     </div>
   );
