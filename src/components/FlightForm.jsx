@@ -2,13 +2,14 @@ import React, {useState} from "react";
 import MyButton from './UI/button/MyButton';
 import MyInput from './UI/input/MyInput';
 
-const FlightForm = () => {
+const FlightForm = ({create}) => {
 
     const [flight, setFlight] = useState({driver: '', weight: 0});
 
     const addNewFlight = e => {
       e.preventDefault();
-    //   setTrucks([...trucks, {...flight}]);
+      const newFlight = { ...flight };
+      create(newFlight);
       setFlight({driver: '', weight: 0});
     };
 

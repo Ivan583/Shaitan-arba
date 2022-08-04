@@ -11,7 +11,8 @@ function App() {
     { driver: "Bear", weight: 2800 },
   ]);
 
-
+  const createFlight = newFlight => 
+    setTrucks([...trucks, newFlight]);
 
   function countSummary(arr) {
     const drivers = [...arr].map(el => el.driver);
@@ -39,7 +40,7 @@ function App() {
 
   return (
     <div className="App">
-      <FlightForm />
+      <FlightForm create={createFlight} />
 
       <FlightList group={groupSummary} total={totalSummary} />
     </div>
