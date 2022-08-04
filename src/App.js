@@ -11,6 +11,28 @@ function App() {
     { driver: "Bear", weight: 2800 },
   ]);
 
+  function countSummary(arr) {
+    const drivers = [...arr].map(el => el.driver);
+
+    // список водителей
+
+    const uniqueDrivers = [...new Set(drivers)];
+
+    // определение промежуточных итогов
+
+    const summary = uniqueDrivers.map(elem => {
+      let summ = arr.filter(truck => truck.driver === elem)
+      .map(truck => truck.weight)
+      .reduce((acc, curr) => acc + curr);
+      return { driver: elem, weight: summ};
+    })
+      return summary;
+  }
+
+  let groupSummary = countSummary(trucks);
+
+  console.log(groupSummary);
+
   return (
     <div className="App">
       <FlightList />
