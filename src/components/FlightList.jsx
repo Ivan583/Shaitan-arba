@@ -1,11 +1,11 @@
 import React from "react";
 import FlightItem from './FlightItem';
 
-const FlightList = () => {
+const FlightList = ({group, total}) => {
 
     return (
         <div>
-            <h1>Total weight: </h1>
+            <h2>Total weight: {total}</h2>
             <FlightItem />
         </div>
     );

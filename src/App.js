@@ -35,13 +35,9 @@ function App() {
     .map(el => el.weight)
     .reduce((acc, curr) => acc + curr);
 
-    console.log(groupSummary)
-
-    console.log(totalSummary);
-
   return (
     <div className="App">
-      <FlightList />
+      <FlightList group={groupSummary} total={totalSummary} />
     </div>
   );
 }
