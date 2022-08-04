@@ -1,17 +1,17 @@
 import React from 'react';
 
-const FlightItem = () => {
+const FlightItem = ({flight}) => {
 
 
     return (
         <div className='weighting'>
 
         <div className='column'>
-           <span>"Bear"</span> 
+           <span> {flight.driver} </span> 
         </div>
 
         <div className='column'>
-           <span>2900</span> 
+           <span> {flight.weight } </span> 
         </div>
 
       </div>
