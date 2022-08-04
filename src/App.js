@@ -1,12 +1,12 @@
 import React from 'react';
 import './App.css';
-import FlightItem from './components/FlightItem';
+import FlightList from './components/FlightList';
+
 
 function App() {
   return (
     <div className="App">
-      <h1>My React Application</h1>
-      <FlightItem />
+      <FlightList />
     </div>
   );
 }
