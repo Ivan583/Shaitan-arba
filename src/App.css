@@ -2,5 +2,19 @@
   width: 600px; 
   margin: 30px auto;
   border: 5px double teal;
+}
+h1 {
   text-align: center;
+}
+
+.weighting {
+  width: 300px;
+  margin: 10px auto;
+  display: flex;
+  border: 1px solid teal;
+}
+
+.column {
+  width: 50%;
+  padding: 5px;
 }
