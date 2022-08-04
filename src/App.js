@@ -31,7 +31,13 @@ function App() {
 
   let groupSummary = countSummary(trucks);
 
-  console.log(groupSummary);
+  const totalSummary = groupSummary
+    .map(el => el.weight)
+    .reduce((acc, curr) => acc + curr);
+
+    console.log(groupSummary)
+
+    console.log(totalSummary);
 
   return (
     <div className="App">
