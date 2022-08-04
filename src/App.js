@@ -6,37 +6,40 @@ import FlightList from './components/FlightList';
 function App() {
 
   const [trucks, setTrucks] = useState([
-    { driver: "Bear", weight: 2900 },
-    { driver: "Wolf", weight: 2700 },
-    { driver: "Bear", weight: 2800 },
+    // { driver: "Bear", weight: 2900 },
+    // { driver: "Wolf", weight: 2700 },
+    // { driver: "Bear", weight: 2800 },
   ]);
 
   const createFlight = newFlight => 
     setTrucks([...trucks, newFlight]);
 
-  function countSummary(arr) {
-    const drivers = [...arr].map(el => el.driver);
+    const groupSummary = trucks.length !== 0 ? countSummary(trucks) : [] ;
 
-    // список водителей
+    function countSummary(arr) {
 
-    const uniqueDrivers = [...new Set(drivers)];
-
-    // определение промежуточных итогов
-
-    const summary = uniqueDrivers.map(elem => {
-      let summ = arr.filter(truck => truck.driver === elem)
-      .map(truck => truck.weight)
-      .reduce((acc, curr) => acc + curr);
-      return { driver: elem, weight: summ};
-    });
-      return summary;
-  };
-
-  let groupSummary = countSummary(trucks);
-
-  const totalSummary = groupSummary
-    .map(el => el.weight)
-    .reduce((acc, curr) => acc + curr);
+      const drivers = [...arr].map(el => el.driver);
+  
+      // список водителей
+  
+      const uniqueDrivers = [...new Set(drivers)];
+  
+      // определение промежуточных итогов
+  
+      const summary = uniqueDrivers.map(elem => {
+        let summ = arr.filter(truck => truck.driver === elem)
+        .map(truck => truck.weight)
+        .reduce((acc, curr) => acc + curr);
+        return { driver: elem, weight: summ};
+      });
+        return summary;
+    }; 
+  
+      const totalSummary = groupSummary.length === 0 ?
+        groupSummary.length :
+          groupSummary
+            .map(el => el.weight)
+            .reduce((acc, curr) => acc + curr);
 
   return (
     <div className="App">

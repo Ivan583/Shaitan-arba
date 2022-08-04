@@ -3,6 +3,10 @@ import FlightItem from './FlightItem';
 
 const FlightList = ({group, total}) => {
 
+    if (!group.length) {
+        return <h2>Empty</h2>
+     }
+
     return (
         <div>
             <h2>Total weight: {total}</h2>

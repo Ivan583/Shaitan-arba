@@ -1,8 +1,7 @@
 import React from 'react';
 
 const FlightItem = ({flight}) => {
-
-
+   
     return (
         <div className='weighting'>
 
