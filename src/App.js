@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import './App.css';
 import FlightForm from './components/FlightForm';
 import FlightList from './components/FlightList';
+import MySelect from './components/UI/select/MySelect';
 
 function App() {
 
@@ -46,10 +47,7 @@ function App() {
       <FlightForm create={createFlight} />
 
       <div>
-        <select>
-          <option value="value">По имени</option>
-          <option value="value">По весу</option>
-        </select>
+          <MySelect />
       </div>
 
       <FlightList group={groupSummary} total={totalSummary} />
