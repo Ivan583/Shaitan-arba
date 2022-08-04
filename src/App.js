@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import './App.css';
 import FlightList from './components/FlightList';
-
+import MyInput from './components/UI/input/MyInput';
 
 function App() {
 
@@ -38,8 +38,8 @@ function App() {
   return (
     <div className="App">
       <form>
-        <input type="text" placeholder="driver" />
-        <input type="number" />
+        <MyInput type="text" placeholder="driver" />
+        <MyInput type="number" />
         <button>Добавить рейс</button>
       </form>
 
