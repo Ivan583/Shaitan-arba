@@ -12,6 +12,8 @@ function App() {
     { driver: "Bear", weight: 2800 },
   ]);
 
+  const [selectedSort, setSelectedSort] = useState('');
+
   const createFlight = newFlight => 
     setTrucks([...trucks, newFlight]);
 
@@ -42,12 +44,30 @@ function App() {
             .map(el => el.weight)
             .reduce((acc, curr) => acc + curr);
 
+            
+            const [groupTrucks, setGroupTrucks] = useState(groupSummary);
+
+            // console.log(groupSummary)
+            console.log([...groupTrucks])
+
+            const sortFlights = (sort) => {              
+              setSelectedSort(sort);
+              setTrucks([...trucks].sort((a, b) => a[sort] - b[sort]));
+            }
+
   return (
     <div className="App">
       <FlightForm create={createFlight} />
 
       <div>
-          <MySelect />
+          <MySelect 
+            value={selectedSort}
+            onChange={sortFlights}
+            defaultValue="Сортировка"
+            options={[
+              {value: 'driver', name: 'По имени'},
+              {value: 'weight', name: 'По весу'}, 
+            ]}/>
       </div>
 
       <FlightList group={groupSummary} total={totalSummary} />
